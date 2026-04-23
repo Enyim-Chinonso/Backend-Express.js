@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Chinonso",
+    "email": "chinonso23@gmail.com",
+    "password": 12345
+  },
+  {
+    "id": 2,
+    "name": "Chinonso",
+    "email": "chinonso23888@gmail.com",
+    "password": {}
+  },
+  {
+    "id": 3,
+    "name": "Chinonso",
+    "email": "chinonso3888@gmail.com",
+    "password": 12345
+  },
+  {
+    "id": 4,
+    "name": "Chidimma",
+    "email": "exceptional23@gmail.com",
+    "password": 12345
+  },
+  {
+    "id": 5,
+    "name": "Eze",
+    "email": "chidiebere23@gmail.com",
+    "password": 45678
+  }
+]
