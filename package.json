@@ -6,7 +6,7 @@
   
   "description": "This is my first express class",
   
-  "main": "index.js",
+  "main": "main.js",
   
   "scripts": {
   
@@ -17,7 +17,7 @@
   "start": "node index.js",
   
     
-  "dev": "nodemon server.js"
+  "dev": "nodemon main.js"
   
   },
   
@@ -33,10 +33,25 @@
   "bcrypt": "^6.0.0",
   
     
+  "cloudinary": "^2.10.0",
+  
+    
   "dotenv": "^17.4.2",
   
     
   "express": "^5.2.1",
+  
+    
+  "jsonwebtoken": "^9.0.3",
+  
+    
+  "mongoose": "^9.5.0",
+  
+    
+  "multer": "^2.1.1",
+  
+    
+  "nodemailer": "^8.0.7",
   
     
   "nodemon": "^3.1.14"
