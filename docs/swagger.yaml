@@ -1,0 +1,268 @@
+openapi: 3.0.0
+
+info:
+  title: UloEase Authentication API
+  version: 1.0.0
+  description: |
+    Authentication and password management endpoints for UloEase.
+
+servers:
+  - url: http://localhost:6000/api
+    description: Local Development Server
+
+tags:
+  - name: Authentication
+    description: User authentication endpoints
+
+paths:
+
+  /register:
+    post:
+      tags:
+        - Authentication
+      summary: Register a new user
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+
+            schema:
+              type: object
+
+              required:
+                - name
+                - email
+                - password
+
+              properties:
+
+                name:
+                  type: string
+                  example: John Doe
+
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+
+                password:
+                  type: string
+                  example: Password123
+
+                role:
+                  type: string
+                  enum:
+                    - user
+                    - admin
+                  example: user
+
+      responses:
+
+        "201":
+          description: User registered successfully
+
+          content:
+            application/json:
+              schema:
+                type: object
+
+                properties:
+                  message:
+                    type: string
+                    example: User registered successfully
+
+        "400":
+          description: Validation error
+
+        "500":
+          description: Server error
+
+
+
+  /login:
+    post:
+      tags:
+        - Authentication
+
+      summary: Login user
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+
+            schema:
+              type: object
+
+              required:
+                - email
+                - password
+
+              properties:
+
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+
+                password:
+                  type: string
+                  example: Password123
+
+      responses:
+
+        "200":
+          description: Login successful
+
+          content:
+            application/json:
+
+              schema:
+                type: object
+
+                properties:
+
+                  message:
+                    type: string
+                    example: Login successful
+
+                  token:
+                    type: string
+                    example: eyJhbGciOiJIUzI1NiIs...
+
+                  user:
+                    type: object
+
+                    properties:
+
+                      _id:
+                        type: string
+
+                      name:
+                        type: string
+
+                      email:
+                        type: string
+
+                      role:
+                        type: string
+
+                      isVerified:
+                        type: boolean
+
+        "400":
+          description: Validation error
+
+        "500":
+          description: Server error
+
+
+
+  /request-password-reset:
+    post:
+      tags:
+        - Authentication
+
+      summary: Request password reset code
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+
+            schema:
+              type: object
+
+              required:
+                - email
+
+              properties:
+
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+
+      responses:
+
+        "200":
+          description: Password reset code sent
+
+          content:
+            application/json:
+
+              schema:
+                type: object
+
+                properties:
+
+                  message:
+                    type: string
+                    example: Password reset code sent
+
+        "400":
+          description: Email is required
+
+        "500":
+          description: Server error
+
+
+
+  /reset-password:
+    post:
+      tags:
+        - Authentication
+
+      summary: Reset user password
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+
+            schema:
+              type: object
+
+              required:
+                - email
+                - code
+                - newPassword
+
+              properties:
+
+                email:
+                  type: string
+                  example: johndoe@gmail.com
+
+                code:
+                  type: string
+                  example: 4567
+
+                newPassword:
+                  type: string
+                  example: NewPassword123
+
+      responses:
+
+        "200":
+          description: Password reset successful
+
+          content:
+            application/json:
+
+              schema:
+                type: object
+
+                properties:
+
+                  message:
+                    type: string
+                    example: Password reset successful
+
+        "400":
+          description: Validation error
+
+        "500":
+          description: Server error

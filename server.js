@@ -143,37 +143,3 @@ app.post("/register", (req, res) => {
         console.log(`Server is running on http://localhost:${port}`);
     });
 
-
-
-// LOGIN
-// app.post("/login", (req, res) => {
-//     const { email, password } = req.body;
-
-//     if (!email || !password) {
-//         return res.status(400).json({ message: "Email and password are required" });
-//     }
-
-//     const users = loadUsers();
-
-//     const user = users.find(u => u.email === email);
-
-//     if (!user) {
-//         return res.status(404).json({ message: "User not found" });
-//     }
-
-//     const isMatch = bcrypt.compareSync(password, user.password);
-
-//     if (!isMatch) {
-//         return res.status(401).json({ message: "Invalid credentials" });
-//     }
-
-//     res.status(200).json({
-//         message: "Login successful",
-//         user: {
-//             id: user.id,
-//             name: user.name,
-//             email: user.email,
-//             role: user.role
-//         }
-//     });
-// });

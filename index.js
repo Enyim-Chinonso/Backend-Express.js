@@ -27,4 +27,3 @@ app.get("/search", (req, res) => {
     const name = req.query.name;
     res.send(`Searching for ${name}`)
 });
-// localhost:5000/search?name=chinonso                                                                                        
